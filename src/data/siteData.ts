@@ -89,17 +89,17 @@ export const processSteps: ProcessStep[] = [
   {
     title: 'Development Team',
     text: 'We assign a clear product owner, project support, developer, designer, QA, and UX role for smooth delivery.',
-    image: '/assets/p1.png',
+    image: '/assets/advanced/process-development-team.jpg',
   },
   {
     title: 'Agile Process',
     text: 'We plan, build, review, and improve in short cycles so the project keeps moving without confusion.',
-    image: '/assets/p2.png',
+    image: '/assets/advanced/process-agile.jpg',
   },
   {
     title: 'Working Software',
     text: 'We focus on shipping clean, usable, responsive software that is ready for real users.',
-    image: '/assets/p3.png',
+    image: '/assets/advanced/process-working-software.jpg',
   },
 ];
 

@@ -17,13 +17,13 @@ const featureLabels = ['Discover', 'Assemble', 'Deliver', 'Support'];
 
 const featureThemes = [
   {
-    surface: 'border-amber-200/80 bg-amber-50/80 hover:border-amber-300',
-    activeSurface: 'border-amber-300 bg-amber-50 shadow-[0_28px_70px_-28px_rgba(245,158,11,0.5)]',
-    accent: 'bg-amber-500 shadow-amber-500/25',
-    label: 'text-amber-700',
-    icon: 'border-amber-100 bg-amber-50',
-    line: 'bg-amber-500',
-    glow: 'rgba(245, 158, 11, 0.18)',
+    surface: 'border-rose-200/80 bg-gradient-to-br from-rose-50/90 via-white to-orange-50/80 hover:border-rose-300',
+    activeSurface: 'border-rose-300 bg-gradient-to-br from-rose-50 via-white to-orange-50 shadow-[0_28px_70px_-28px_rgba(244,63,94,0.42)]',
+    accent: 'bg-gradient-to-br from-rose-500 to-orange-500 shadow-rose-500/25',
+    label: 'text-rose-700',
+    icon: 'border-rose-100 bg-rose-50',
+    line: 'bg-gradient-to-r from-rose-500 to-orange-400',
+    glow: 'rgba(244, 63, 94, 0.16)',
   },
   {
     surface: 'border-sky-200/80 bg-sky-50/75 hover:border-sky-300',

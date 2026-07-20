@@ -13,7 +13,7 @@ export default function HomeWorkShowcase() {
     <MotionSection className="section-pad bg-white">
       <div className="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-[1.1fr_.9fr]">
         <motion.div whileHover={{ rotate: -1.5, scale: 1.015 }} transition={{ type: 'spring', stiffness: 220, damping: 18 }} className="relative overflow-hidden rounded-[2rem] bg-white shadow-2xl">
-          <Image src={featuredWork.image} alt={featuredWork.title} width={1200} height={760} className="h-[420px] w-full object-cover object-left-top" />
+          <Image src="/assets/advanced/instagram-portfolio.webp" alt="Instagram portfolio project showcase" width={1200} height={675} className="h-[420px] w-full object-cover object-center" />
           <div className="absolute bottom-5 left-5 rounded-2xl bg-zinc-950/90 px-5 py-4 text-white backdrop-blur">
             <p className="text-xs font-black uppercase tracking-[0.25em] text-orange-300">Featured</p>
             <h3 className="mt-1 text-xl font-black">{featuredWork.title}</h3>
