@@ -4,11 +4,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { pages, services } from '@/data/siteData';
 
 export default function Navbar() {
   const pathname = usePathname();
+  const reduceMotion = useReducedMotion();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
 
@@ -21,8 +22,25 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-zinc-950/75 text-white backdrop-blur-2xl">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 lg:px-8">
-        <Link href="/" onClick={closeMenus} className="flex items-center gap-3" aria-label="Go to home page">
-          <Image src="/assets/logo-white.png" alt="Aan Nahl" width={160} height={48} className="h-12 w-auto object-contain" priority />
+        <Link href="/" onClick={closeMenus} className="group flex items-center gap-3 rounded-xl focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-teal-400/40" aria-label="Go to home page">
+          <motion.span
+            initial={reduceMotion ? false : { opacity: 0, x: -14, scale: 0.96 }}
+            animate={{ opacity: 1, x: 0, scale: 1 }}
+            whileHover={reduceMotion ? undefined : { y: -2, scale: 1.03 }}
+            whileTap={reduceMotion ? undefined : { scale: 0.98 }}
+            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+            className="relative block overflow-hidden rounded-lg"
+          >
+            <Image src="/assets/logo-white.png" alt="Aan Nahl" width={160} height={48} className="h-12 w-auto object-contain" priority />
+            <span
+              aria-hidden
+              className="pointer-events-none absolute inset-y-0 -left-1/3 w-1/3 skew-x-[-18deg] bg-gradient-to-r from-transparent via-white/25 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-[430%]"
+            />
+            <span
+              aria-hidden
+              className="absolute inset-x-5 bottom-0 h-px origin-left scale-x-0 bg-gradient-to-r from-orange-400 via-teal-400 to-transparent transition-transform duration-500 group-hover:scale-x-100"
+            />
+          </motion.span>
         </Link>
 
         <nav className="hidden items-center gap-1 lg:flex">

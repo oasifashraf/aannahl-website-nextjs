@@ -5,6 +5,7 @@ import PageHero from '@/components/PageHero';
 import ProcessShowcase from '@/components/ProcessShowcase';
 import MotionSection from '@/components/animations/MotionSection';
 import PageShell from '@/components/animations/PageShell';
+import AnimatedCounter from '@/components/animations/AnimatedCounter';
 
 export const metadata: Metadata = {
   title: 'About Aan Nahl | Software Development Firm',
@@ -28,7 +29,9 @@ export default function AboutPage() {
           <div className="relative rounded-[2.5rem] bg-white p-5 shadow-2xl shadow-orange-100/80">
             <Image src="/assets/advanced/office-team.jpg" alt="Aan Nahl software team working" width={1000} height={680} className="h-[420px] w-full rounded-[2rem] object-cover" />
             <div className="absolute -bottom-5 right-8 rounded-2xl bg-zinc-950 px-6 py-4 text-white shadow-glow">
-              <strong className="block text-3xl font-black text-orange-300">120+</strong>
+              <strong className="block text-3xl font-black text-orange-300">
+                <AnimatedCounter value={120} suffix="+" duration={2} />
+              </strong>
               <span className="text-sm font-bold text-zinc-300">Projects Delivered</span>
             </div>
           </div>
@@ -38,12 +41,14 @@ export default function AboutPage() {
             <p className="mt-5 text-lg leading-8 text-zinc-600">Our team works with planning, design, development, quality assurance, and ongoing support. The goal is to make technology useful, simple, and valuable for your business.</p>
             <div className="mt-8 grid gap-4 sm:grid-cols-3">
               {[
-                ['2010', 'Founded'],
-                ['120+', 'Projects'],
-                ['5+', 'Core Services'],
-              ].map(([num, label]) => (
+                { value: 2010, suffix: '', label: 'Founded', duration: 2.2 },
+                { value: 120, suffix: '+', label: 'Projects', duration: 2 },
+                { value: 5, suffix: '+', label: 'Core Services', duration: 1.4 },
+              ].map(({ value, suffix, label, duration }) => (
                 <div key={label} className="rounded-3xl bg-orange-50 p-6 text-center">
-                  <strong className="block text-4xl font-black text-orange-600">{num}</strong>
+                  <strong className="block text-4xl font-black text-orange-600">
+                    <AnimatedCounter value={value} suffix={suffix} duration={duration} />
+                  </strong>
                   <span className="mt-2 block font-bold text-zinc-600">{label}</span>
                 </div>
               ))}

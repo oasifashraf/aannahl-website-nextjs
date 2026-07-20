@@ -160,6 +160,7 @@ import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import AnimatedText from '@/components/animations/AnimatedText';
 import FloatingGlow from '@/components/animations/FloatingGlow';
+import AnimatedCounter from '@/components/animations/AnimatedCounter';
 
 const studioSlides = [
   { src: '/assets/advanced/client-cards.png', alt: 'Client cards interface' },
@@ -320,16 +321,16 @@ export default function Hero() {
 
               <div className="grid grid-cols-3 gap-4">
                 {[
-                  ['120+', 'Projects'],
-                  ['75+', 'Clients'],
-                  ['24/7', 'Support'],
-                ].map(([value, label]) => (
+                  { value: 120, suffix: '+', label: 'Projects' },
+                  { value: 75, suffix: '+', label: 'Clients' },
+                  { value: 24, suffix: '/7', label: 'Support' },
+                ].map(({ value, suffix, label }) => (
                   <div
                     key={label}
                     className="rounded-2xl border border-white/10 bg-slate-950/40 p-5"
                   >
                     <strong className="block text-2xl font-black text-white">
-                      {value}
+                      <AnimatedCounter value={value} suffix={suffix} duration={1.8} />
                     </strong>
                     <span className="mt-1 block text-xs font-semibold text-slate-400">
                       {label}
@@ -344,7 +345,9 @@ export default function Hero() {
               transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
               className="absolute -bottom-6 right-8 rounded-2xl border border-orange-300/40 bg-orange-500 px-6 py-4 text-white shadow-xl shadow-black/30"
             >
-              <strong className="block text-2xl font-black">10+</strong>
+              <strong className="block text-2xl font-black">
+                <AnimatedCounter value={10} suffix="+" duration={1.5} />
+              </strong>
               <span className="text-xs font-bold text-orange-50">
                 Years Experience
               </span>
