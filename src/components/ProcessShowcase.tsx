@@ -1,7 +1,8 @@
 'use client';
 
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
 import { processSteps } from '@/data/siteData';
 
 const cardThemes = [
@@ -43,6 +44,26 @@ const card = {
 };
 
 export default function ProcessShowcase() {
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const selectedStep = selectedIndex === null ? null : processSteps[selectedIndex];
+
+  useEffect(() => {
+    if (!selectedStep) return;
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setSelectedIndex(null);
+    };
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [selectedStep]);
+
   return (
     <motion.div
       className="relative grid gap-7 lg:grid-cols-3"
@@ -69,6 +90,14 @@ export default function ProcessShowcase() {
             whileTap={{ scale: 0.99 }}
             className="group relative isolate overflow-hidden rounded-[2.5rem] border border-slate-200/80 bg-white p-5 shadow-xl shadow-slate-200/60 [transform-style:preserve-3d] sm:p-7"
           >
+            <button
+              type="button"
+              onClick={() => setSelectedIndex(index)}
+              aria-label={`Open ${step.title} details`}
+              className="absolute inset-0 z-30 rounded-[2.5rem] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-orange-400"
+            >
+              <span className="sr-only">View {step.title}</span>
+            </button>
             <div className={`absolute inset-x-8 -top-20 h-36 rounded-full ${theme.glow} opacity-0 blur-3xl transition duration-500 group-hover:opacity-100`} />
             <div className={`absolute inset-x-0 top-0 h-1.5 origin-left bg-gradient-to-r ${theme.accent} transition duration-500 group-hover:scale-x-110`} />
             <div className="pointer-events-none absolute -left-1/2 top-0 h-full w-1/3 -skew-x-12 bg-gradient-to-r from-transparent via-white/80 to-transparent opacity-0 transition-all duration-700 group-hover:left-[120%] group-hover:opacity-100" />
@@ -118,6 +147,48 @@ export default function ProcessShowcase() {
           </motion.article>
         );
       })}
+
+      <AnimatePresence>
+        {selectedStep && (
+          <motion.div
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/80 p-4 backdrop-blur-md"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onMouseDown={() => setSelectedIndex(null)}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="about-process-modal-title"
+          >
+            <motion.div
+              initial={{ opacity: 0, y: 40, scale: 0.92 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 24, scale: 0.95 }}
+              transition={{ type: 'spring', stiffness: 240, damping: 24 }}
+              onMouseDown={(event) => event.stopPropagation()}
+              className="relative w-full max-w-4xl overflow-hidden rounded-[2.5rem] border border-white/15 bg-slate-950 shadow-2xl"
+            >
+              <div className="relative aspect-[16/9] min-h-[420px] w-full sm:min-h-0">
+                <Image src={selectedStep.image} alt={selectedStep.title} fill sizes="(min-width: 1024px) 896px, 95vw" className="object-cover" priority />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/35 to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 p-7 text-white sm:p-10">
+                  <span className="text-xs font-black uppercase tracking-[0.25em] text-orange-300">Our process</span>
+                  <h3 id="about-process-modal-title" className="mt-3 text-3xl font-black sm:text-5xl">{selectedStep.title}</h3>
+                  <p className="mt-4 max-w-2xl text-base leading-7 text-slate-200 sm:text-lg sm:leading-8">{selectedStep.text}</p>
+                </div>
+              </div>
+              <button
+                type="button"
+                onClick={() => setSelectedIndex(null)}
+                className="absolute right-5 top-5 z-10 grid h-12 w-12 place-items-center rounded-full border border-white/20 bg-slate-950/65 text-2xl font-bold text-white shadow-lg backdrop-blur-md transition hover:rotate-90 hover:bg-orange-500 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-orange-300"
+                aria-label="Close process details"
+              >
+                ×
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.div>
   );
 }
