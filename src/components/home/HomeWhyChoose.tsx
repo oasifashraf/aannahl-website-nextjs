@@ -15,6 +15,45 @@ import { whyChooseUs } from '@/data/siteData';
 
 const featureLabels = ['Discover', 'Assemble', 'Deliver', 'Support'];
 
+const featureThemes = [
+  {
+    surface: 'border-amber-200/80 bg-amber-50/80 hover:border-amber-300',
+    activeSurface: 'border-amber-300 bg-amber-50 shadow-[0_28px_70px_-28px_rgba(245,158,11,0.5)]',
+    accent: 'bg-amber-500 shadow-amber-500/25',
+    label: 'text-amber-700',
+    icon: 'border-amber-100 bg-amber-50',
+    line: 'bg-amber-500',
+    glow: 'rgba(245, 158, 11, 0.18)',
+  },
+  {
+    surface: 'border-sky-200/80 bg-sky-50/75 hover:border-sky-300',
+    activeSurface: 'border-sky-300 bg-sky-50 shadow-[0_28px_70px_-28px_rgba(14,165,233,0.45)]',
+    accent: 'bg-sky-500 shadow-sky-500/25',
+    label: 'text-sky-700',
+    icon: 'border-sky-100 bg-sky-50',
+    line: 'bg-sky-500',
+    glow: 'rgba(14, 165, 233, 0.16)',
+  },
+  {
+    surface: 'border-violet-200/80 bg-violet-50/70 hover:border-violet-300',
+    activeSurface: 'border-violet-300 bg-violet-50 shadow-[0_28px_70px_-28px_rgba(139,92,246,0.42)]',
+    accent: 'bg-violet-500 shadow-violet-500/25',
+    label: 'text-violet-700',
+    icon: 'border-violet-100 bg-violet-50',
+    line: 'bg-violet-500',
+    glow: 'rgba(139, 92, 246, 0.15)',
+  },
+  {
+    surface: 'border-emerald-200/80 bg-emerald-50/70 hover:border-emerald-300',
+    activeSurface: 'border-emerald-300 bg-emerald-50 shadow-[0_28px_70px_-28px_rgba(16,185,129,0.42)]',
+    accent: 'bg-emerald-500 shadow-emerald-500/25',
+    label: 'text-emerald-700',
+    icon: 'border-emerald-100 bg-emerald-50',
+    line: 'bg-emerald-500',
+    glow: 'rgba(16, 185, 129, 0.15)',
+  },
+] as const;
+
 type FeatureCardProps = {
   index: number;
   active: boolean;
@@ -23,6 +62,7 @@ type FeatureCardProps = {
 };
 
 function FeatureCard({ item, index, active, onSelect }: FeatureCardProps) {
+  const theme = featureThemes[index];
   const reduceMotion = useReducedMotion();
   const pointerX = useMotionValue(0);
   const pointerY = useMotionValue(0);
@@ -36,7 +76,7 @@ function FeatureCard({ item, index, active, onSelect }: FeatureCardProps) {
   });
   const glowX = useTransform(pointerX, [-0.5, 0.5], ['20%', '80%']);
   const glowY = useTransform(pointerY, [-0.5, 0.5], ['20%', '80%']);
-  const glow = useMotionTemplate`radial-gradient(260px circle at ${glowX} ${glowY}, rgba(249, 115, 22, 0.18), transparent 65%)`;
+  const glow = useMotionTemplate`radial-gradient(260px circle at ${glowX} ${glowY}, ${theme.glow}, transparent 65%)`;
 
   const handlePointerMove = (event: MouseEvent<HTMLButtonElement>) => {
     if (reduceMotion) return;
@@ -65,36 +105,36 @@ function FeatureCard({ item, index, active, onSelect }: FeatureCardProps) {
       style={reduceMotion ? undefined : { rotateX, rotateY, transformPerspective: 900 }}
       className={`group relative min-h-[260px] overflow-hidden rounded-[2rem] border p-7 text-left transition-[border-color,box-shadow,background-color] duration-500 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-orange-200 sm:min-h-[280px] ${
         active
-          ? 'border-orange-300 bg-white shadow-[0_28px_70px_-28px_rgba(249,115,22,0.55)]'
-          : 'border-orange-100/80 bg-[#fff8ee] shadow-[0_18px_50px_-32px_rgba(87,52,16,0.38)] hover:border-orange-200'
+          ? theme.activeSurface
+          : `${theme.surface} shadow-[0_18px_50px_-32px_rgba(63,63,70,0.3)]`
       }`}
     >
       <motion.span className="pointer-events-none absolute inset-0" style={{ background: glow }} />
       <span className="pointer-events-none absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-orange-400/70 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
       <span className="relative flex items-start justify-between gap-5">
-        <span className="relative flex h-12 w-12 items-center justify-center overflow-hidden rounded-2xl bg-orange-500 text-lg font-black text-white shadow-lg shadow-orange-500/25">
+        <span className={`relative flex h-12 w-12 items-center justify-center overflow-hidden rounded-2xl text-lg font-black text-white shadow-lg ${theme.accent}`}>
           <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
           {String(index + 1).padStart(2, '0')}
         </span>
         <motion.span
           animate={active && !reduceMotion ? { rotate: [0, -6, 6, 0], scale: [1, 1.08, 1] } : {}}
           transition={{ duration: 0.55 }}
-          className="flex h-14 w-14 items-center justify-center rounded-2xl border border-orange-100 bg-white/90 shadow-sm"
+          className={`flex h-14 w-14 items-center justify-center rounded-2xl border shadow-sm ${theme.icon}`}
         >
           <Image src={item.icon} alt="" width={48} height={48} className="h-10 w-10 object-contain" />
         </motion.span>
       </span>
 
       <span className="relative mt-7 block">
-        <span className="text-[11px] font-black uppercase tracking-[0.22em] text-orange-600">
+        <span className={`text-[11px] font-black uppercase tracking-[0.22em] ${theme.label}`}>
           {featureLabels[index]}
         </span>
         <span className="mt-2 block text-2xl font-black text-zinc-950">{item.title}</span>
         <span className="mt-3 block leading-7 text-zinc-600">{item.text}</span>
       </span>
 
-      <span className="absolute bottom-0 left-0 h-1 bg-orange-500 transition-all duration-500" style={{ width: active ? '100%' : '0%' }} />
+      <span className={`absolute bottom-0 left-0 h-1 transition-all duration-500 ${theme.line}`} style={{ width: active ? '100%' : '0%' }} />
     </motion.button>
   );
 }
@@ -170,8 +210,8 @@ export default function HomeWhyChoose() {
                 onClick={() => setActiveFeature(index)}
                 className={`rounded-full border px-4 py-2 text-xs font-black uppercase tracking-wider transition ${
                   activeFeature === index
-                    ? 'border-orange-500 bg-orange-500 text-white shadow-lg shadow-orange-200'
-                    : 'border-zinc-200 bg-white text-zinc-600 hover:border-orange-300 hover:text-orange-600'
+                    ? 'border-teal-600 bg-teal-600 text-white shadow-lg shadow-teal-200'
+                    : 'border-zinc-200 bg-white text-zinc-600 hover:border-teal-300 hover:text-teal-700'
                 }`}
               >
                 {label}
@@ -182,7 +222,7 @@ export default function HomeWhyChoose() {
           <div className="mt-8 flex flex-wrap items-center gap-5">
             <Link
               href="/contact"
-              className="group inline-flex items-center gap-3 rounded-full bg-orange-500 px-7 py-3.5 font-black text-white shadow-xl shadow-orange-200 transition hover:-translate-y-1 hover:bg-zinc-950 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-orange-200"
+              className="group inline-flex items-center gap-3 rounded-full bg-teal-600 px-7 py-3.5 font-black text-white shadow-xl shadow-teal-200 transition hover:-translate-y-1 hover:bg-zinc-950 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-teal-200"
             >
               Discuss Your Project
               <span className="transition-transform duration-300 group-hover:translate-x-1" aria-hidden>→</span>

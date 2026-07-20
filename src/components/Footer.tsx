@@ -14,7 +14,7 @@ export default function Footer() {
           <p className="mt-4 max-w-xl leading-8 text-zinc-400">
             Aan Nahl is a software company focused on web applications, mobile applications, UI/UX design, dedicated teams, and support.
           </p>
-          <Link href="/contact" className="mt-7 inline-block rounded-full bg-orange-500 px-7 py-3 font-black text-white transition hover:-translate-y-1 hover:bg-orange-600">
+          <Link href="/contact" className="mt-7 inline-block rounded-full bg-teal-600 px-7 py-3 font-black text-white shadow-lg shadow-teal-950/20 transition hover:-translate-y-1 hover:bg-teal-500">
             Start a New Project
           </Link>
         </div>

@@ -33,12 +33,12 @@ export default function Navbar() {
                   type="button"
                   onMouseEnter={() => setServicesOpen(true)}
                   onClick={() => setServicesOpen((value) => !value)}
-                  className={`focus-ring rounded-full px-4 py-2 text-sm font-extrabold transition ${isActive(page.href) ? 'bg-orange-500 text-white' : 'text-zinc-200 hover:bg-white/10 hover:text-orange-300'}`}
+                  className={`focus-ring rounded-full px-4 py-2 text-sm font-extrabold transition ${isActive(page.href) ? 'bg-teal-600 text-white' : 'text-zinc-200 hover:bg-white/10 hover:text-teal-300'}`}
                 >
                   {page.label} ▾
                 </button>
               ) : (
-                <Link href={page.href} onClick={closeMenus} className={`block rounded-full px-4 py-2 text-sm font-extrabold transition ${isActive(page.href) ? 'bg-orange-500 text-white' : 'text-zinc-200 hover:bg-white/10 hover:text-orange-300'}`}>
+                <Link href={page.href} onClick={closeMenus} className={`block rounded-full px-4 py-2 text-sm font-extrabold transition ${isActive(page.href) ? 'bg-teal-600 text-white' : 'text-zinc-200 hover:bg-white/10 hover:text-teal-300'}`}>
                   {page.label}
                 </Link>
               )}
@@ -58,7 +58,7 @@ export default function Navbar() {
                         <p className="text-xs font-black uppercase tracking-[0.25em] text-orange-300">Services menu</p>
                         <h3 className="mt-1 text-2xl font-black">Build, launch, and support your software</h3>
                       </div>
-                      <Link href="/services" onClick={closeMenus} className="rounded-full bg-orange-500 px-5 py-3 text-sm font-black text-white hover:bg-orange-600">View all</Link>
+                      <Link href="/services" onClick={closeMenus} className="rounded-full bg-teal-600 px-5 py-3 text-sm font-black text-white hover:bg-teal-700">View all</Link>
                     </div>
                     <div className="grid grid-cols-2 gap-3">
                       {services.slice(0, 4).map((service) => (
@@ -79,8 +79,8 @@ export default function Navbar() {
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
-          <Link href="/team" onClick={closeMenus} className="rounded-full border border-white/20 px-5 py-3 text-sm font-black text-zinc-100 hover:border-orange-300 hover:text-orange-300">Meet Team</Link>
-          <Link href="/contact" onClick={closeMenus} className="rounded-full bg-orange-500 px-6 py-3 text-sm font-black text-white shadow-lg shadow-orange-500/25 hover:bg-orange-600">Get in Touch</Link>
+          <Link href="/team" onClick={closeMenus} className="rounded-full border border-white/20 px-5 py-3 text-sm font-black text-zinc-100 hover:border-teal-300 hover:text-teal-300">Meet Team</Link>
+          <Link href="/contact" onClick={closeMenus} className="rounded-full bg-teal-600 px-6 py-3 text-sm font-black text-white shadow-lg shadow-teal-600/25 hover:bg-teal-700">Get in Touch</Link>
         </div>
 
         <button type="button" className="focus-ring rounded-xl border border-white/20 px-3 py-2 text-2xl text-white lg:hidden" onClick={() => setMobileOpen((value) => !value)} aria-label="Toggle menu">
@@ -92,7 +92,7 @@ export default function Navbar() {
         {mobileOpen && (
           <motion.nav initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }} className="overflow-hidden border-t border-white/10 bg-zinc-950/75 px-5 py-4 backdrop-blur-2xl lg:hidden">
             {pages.map((page) => (
-              <Link key={page.id} href={page.href} onClick={closeMenus} className={`mb-2 block w-full rounded-2xl px-4 py-3 text-left font-black ${isActive(page.href) ? 'bg-orange-500 text-white' : 'text-zinc-200 hover:bg-white/10'}`}>
+              <Link key={page.id} href={page.href} onClick={closeMenus} className={`mb-2 block w-full rounded-2xl px-4 py-3 text-left font-black ${isActive(page.href) ? 'bg-teal-600 text-white' : 'text-zinc-200 hover:bg-white/10'}`}>
                 {page.label}
               </Link>
             ))}

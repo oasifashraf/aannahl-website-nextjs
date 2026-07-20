@@ -36,7 +36,7 @@ export default function PortfolioPage() {
                 <span key={tag} className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-black text-slate-700 shadow-sm">{tag}</span>
               ))}
             </div>
-            <Link href="/contact" className="mt-8 inline-flex rounded-full bg-slate-950 px-8 py-4 font-black text-white shadow-lg shadow-slate-950/20 transition hover:-translate-y-1 hover:bg-orange-500 hover:shadow-orange-500/25">Start Similar Project</Link>
+            <Link href="/contact" className="mt-8 inline-flex rounded-full bg-slate-950 px-8 py-4 font-black text-white shadow-lg shadow-slate-950/20 transition hover:-translate-y-1 hover:bg-teal-600 hover:shadow-teal-600/25">Start Similar Project</Link>
           </div>
           <AnimatePresence mode="wait">
             <motion.div key={item.title} initial={{ opacity: 0, scale: 0.96, x: 28 }} animate={{ opacity: 1, scale: 1, x: 0 }} exit={{ opacity: 0, scale: 0.96, x: -28 }} transition={{ duration: 0.35 }} className="rounded-[2.5rem] border border-slate-800 bg-slate-950 p-5 shadow-2xl shadow-sky-200/70">

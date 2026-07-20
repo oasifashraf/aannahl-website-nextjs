@@ -32,7 +32,7 @@ export default function PageHero({ eyebrow, title, text, image = '/assets/advanc
         <h1 className="mt-7 max-w-4xl text-5xl font-black leading-tight md:text-7xl">{title}</h1>
         <p className="mt-6 max-w-3xl text-lg leading-8 text-zinc-200 md:text-xl">{text}</p>
         {ctaHref && ctaLabel ? (
-          <Link href={ctaHref} className="mt-9 inline-flex rounded-full bg-orange-500 px-8 py-4 font-black text-white shadow-glow transition hover:-translate-y-1 hover:bg-orange-600">
+          <Link href={ctaHref} className="mt-9 inline-flex rounded-full bg-teal-600 px-8 py-4 font-black text-white shadow-lg shadow-teal-900/25 transition hover:-translate-y-1 hover:bg-teal-500">
             {ctaLabel}
           </Link>
         ) : null}

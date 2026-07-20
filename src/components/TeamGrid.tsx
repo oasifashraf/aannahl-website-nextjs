@@ -59,7 +59,7 @@ export default function TeamGrid({ members }: TeamGridProps) {
               <span className="block text-2xl font-black text-zinc-950">{member.name}</span>
               <span className="mt-1 block font-black text-orange-600">{member.role}</span>
               <span className="mt-4 block leading-7 text-zinc-600">{member.bio}</span>
-              <span className="mt-6 inline-flex rounded-full bg-zinc-950 px-6 py-3 font-black text-white transition group-hover:-translate-y-1 group-hover:bg-orange-500">View Profile</span>
+              <span className="mt-6 inline-flex rounded-full bg-zinc-950 px-6 py-3 font-black text-white transition group-hover:-translate-y-1 group-hover:bg-teal-600">View Profile</span>
             </span>
           </motion.button>
         ))}
@@ -92,7 +92,7 @@ export default function TeamGrid({ members }: TeamGridProps) {
                 type="button"
                 onClick={() => setSelectedMember(null)}
                 aria-label="Close profile"
-                className="absolute right-5 top-5 z-10 grid h-11 w-11 place-items-center rounded-full bg-white text-2xl font-bold text-zinc-950 shadow-lg transition hover:rotate-90 hover:bg-orange-500 hover:text-white focus:outline-none focus-visible:ring-4 focus-visible:ring-orange-400"
+                className="absolute right-5 top-5 z-10 grid h-11 w-11 place-items-center rounded-full bg-white text-2xl font-bold text-zinc-950 shadow-lg transition hover:rotate-90 hover:bg-teal-600 hover:text-white focus:outline-none focus-visible:ring-4 focus-visible:ring-teal-400"
               >
                 &times;
               </button>
@@ -105,7 +105,7 @@ export default function TeamGrid({ members }: TeamGridProps) {
                 <h2 id="team-member-name" className="mt-2 text-3xl font-black text-zinc-950">{selectedMember.name}</h2>
                 <p className="mt-1 text-lg font-black text-orange-600">{selectedMember.role}</p>
                 <p id="team-member-bio" className="mx-auto mt-5 max-w-md leading-7 text-zinc-600">{selectedMember.bio}</p>
-                <Link href="/contact" className="mt-7 inline-flex rounded-full bg-zinc-950 px-7 py-3 font-black text-white transition hover:-translate-y-1 hover:bg-orange-500">
+                <Link href="/contact" className="mt-7 inline-flex rounded-full bg-zinc-950 px-7 py-3 font-black text-white transition hover:-translate-y-1 hover:bg-teal-600">
                   Contact Team
                 </Link>
               </div>

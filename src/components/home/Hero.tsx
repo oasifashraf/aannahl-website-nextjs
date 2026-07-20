@@ -239,7 +239,7 @@ export default function Hero() {
             >
               <Link
                 href="/contact"
-                className="group relative overflow-hidden rounded-full bg-orange-500 px-9 py-4 text-center font-black text-white shadow-[0_20px_60px_rgba(249,115,22,0.28)] transition hover:-translate-y-1 hover:bg-orange-600"
+                className="group relative overflow-hidden rounded-full bg-teal-600 px-9 py-4 text-center font-black text-white shadow-[0_20px_60px_rgba(13,148,136,0.3)] transition hover:-translate-y-1 hover:bg-teal-500"
               >
                 <span className="relative z-10">Start Your Project</span>
                 <span className="absolute inset-0 -translate-x-full bg-white/25 transition duration-500 group-hover:translate-x-full" />
@@ -247,7 +247,7 @@ export default function Hero() {
 
               <Link
                 href="/portfolio"
-                className="rounded-full border border-white/20 bg-white/10 px-9 py-4 text-center font-black text-white backdrop-blur-md transition hover:-translate-y-1 hover:border-orange-400 hover:bg-orange-500"
+                className="rounded-full border border-white/20 bg-white/10 px-9 py-4 text-center font-black text-white backdrop-blur-md transition hover:-translate-y-1 hover:border-teal-400 hover:bg-teal-600"
               >
                 View Portfolio
               </Link>
@@ -294,7 +294,7 @@ export default function Hero() {
                       aria-label={`Show slide ${index + 1}`}
                       className={`h-2 rounded-full transition-all ${
                         activeSlide === index
-                          ? 'w-7 bg-orange-400'
+                          ? 'w-7 bg-teal-400'
                           : 'w-2 bg-white/50 hover:bg-white'
                       }`}
                     />

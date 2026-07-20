@@ -18,7 +18,7 @@ export default function HomeServices() {
             <span className="text-sm font-black uppercase tracking-[0.25em] text-orange-600">Our Services</span>
             <h2 className="mt-3 text-4xl font-black text-zinc-950 md:text-5xl">What we can build for you</h2>
           </div>
-          <Link href="/services" className="w-fit rounded-full bg-zinc-950 px-7 py-3 font-black text-white transition hover:-translate-y-1 hover:bg-orange-500">View all services</Link>
+          <Link href="/services" className="w-fit rounded-full bg-zinc-950 px-7 py-3 font-black text-white transition hover:-translate-y-1 hover:bg-teal-600">View all services</Link>
         </div>
 
         <div className="grid gap-6 lg:grid-cols-[0.92fr_1.08fr]">
@@ -32,7 +32,7 @@ export default function HomeServices() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: index * 0.08 }}
-                className={`card-hover rounded-[1.8rem] border p-5 text-left ${activeService.title === service.title ? 'border-orange-300 bg-orange-500 text-white shadow-2xl shadow-orange-500/20' : 'border-orange-100 bg-white text-zinc-950 shadow-lg shadow-orange-100/60'}`}
+                className={`card-hover rounded-[1.8rem] border p-5 text-left ${activeService.title === service.title ? 'border-teal-400 bg-teal-600 text-white shadow-2xl shadow-teal-600/20' : 'border-orange-100 bg-white text-zinc-950 shadow-lg shadow-orange-100/60'}`}
               >
                 <div className="flex items-center gap-4">
                   <span className="grid h-14 w-14 place-items-center rounded-2xl bg-white p-3 shadow">

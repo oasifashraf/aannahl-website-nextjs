@@ -48,7 +48,7 @@ export default function AboutPage() {
                 </div>
               ))}
             </div>
-            <Link href="/team" className="mt-8 inline-flex rounded-full bg-zinc-950 px-7 py-3 font-black text-white transition hover:-translate-y-1 hover:bg-orange-500">Meet the team</Link>
+            <Link href="/team" className="mt-8 inline-flex rounded-full bg-zinc-950 px-7 py-3 font-black text-white transition hover:-translate-y-1 hover:bg-teal-600">Meet the team</Link>
           </div>
         </div>
       </MotionSection>

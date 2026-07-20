@@ -23,7 +23,7 @@ export default function BackToTop() {
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 24, scale: 0.8 }}
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="fixed bottom-6 right-6 z-40 grid h-12 w-12 place-items-center rounded-full bg-orange-500 text-xl font-black text-white shadow-glow transition hover:bg-zinc-950"
+          className="fixed bottom-6 right-6 z-40 grid h-12 w-12 place-items-center rounded-full bg-teal-600 text-xl font-black text-white shadow-lg shadow-teal-600/25 transition hover:bg-zinc-950"
         >
           ↑
         </motion.button>

@@ -26,7 +26,7 @@ export default function ServicesPage() {
       <MotionSection className="section-pad">
         <div className="mx-auto mt-4 grid max-w-7xl gap-6 lg:grid-cols-5">
           {services.map((service) => (
-            <button key={service.title} type="button" onClick={() => setSelected(service)} className={`card-hover rounded-[2rem] border p-6 text-left ${selected.title === service.title ? 'border-orange-400 bg-orange-500 text-white shadow-2xl shadow-orange-500/25' : 'border-orange-100 bg-white text-zinc-950 shadow-lg shadow-orange-100/70'}`}>
+            <button key={service.title} type="button" onClick={() => setSelected(service)} className={`card-hover rounded-[2rem] border p-6 text-left ${selected.title === service.title ? 'border-teal-400 bg-teal-600 text-white shadow-2xl shadow-teal-600/25' : 'border-orange-100 bg-white text-zinc-950 shadow-lg shadow-orange-100/70'}`}>
               <Image src={service.icon} alt="" width={58} height={58} className="mb-5 h-14 w-14 object-contain" />
               <h2 className="text-xl font-black">{service.title}</h2>
               <p className={`mt-4 text-sm leading-6 ${selected.title === service.title ? 'text-orange-50' : 'text-zinc-600'}`}>{service.short}</p>
@@ -47,7 +47,7 @@ export default function ServicesPage() {
                 <div key={bullet} className="rounded-2xl border border-white/10 bg-white/10 p-5 font-bold">✓ {bullet}</div>
               ))}
             </div>
-            <Link href="/contact" className="mt-8 inline-flex rounded-full bg-orange-500 px-8 py-4 font-black text-white transition hover:-translate-y-1 hover:bg-orange-600">Request This Service</Link>
+            <Link href="/contact" className="mt-8 inline-flex rounded-full bg-teal-600 px-8 py-4 font-black text-white shadow-lg shadow-teal-600/20 transition hover:-translate-y-1 hover:bg-teal-700">Request This Service</Link>
           </div>
           <AnimatePresence mode="wait">
             <motion.div key={selected.title} initial={{ opacity: 0, x: 35 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -35 }} transition={{ duration: 0.35 }} className="relative min-h-[420px] bg-white/5">

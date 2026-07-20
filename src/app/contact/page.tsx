@@ -99,7 +99,7 @@ export default function ContactPage() {
             <label className="mt-5 block font-bold">Project Description<textarea name="message" value={formData.message} onChange={handleChange} rows={5} className="focus-ring mt-2 w-full rounded-2xl border border-zinc-200 px-4 py-3 outline-none focus:border-orange-400" /></label>
             {Object.values(errors).map((error) => <p key={error} className="mt-3 font-bold text-red-600">{error}</p>)}
             {success ? <p className="mt-4 rounded-2xl bg-green-50 p-4 font-bold text-green-700">{success}</p> : null}
-            <button type="submit" className="mt-6 w-full rounded-full bg-orange-500 px-8 py-4 font-black text-white transition hover:-translate-y-1 hover:bg-zinc-950">Submit Request</button>
+            <button type="submit" className="mt-6 w-full rounded-full bg-teal-600 px-8 py-4 font-black text-white shadow-lg shadow-teal-600/20 transition hover:-translate-y-1 hover:bg-zinc-950">Submit Request</button>
             <div className="mt-6 rounded-2xl bg-[#fff7eb] p-5 text-sm leading-7 text-zinc-600">
               <strong className="text-zinc-950">Live Preview:</strong> {formData.firstName || 'Your name'} is interested in {formData.interest}.
             </div>

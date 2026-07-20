@@ -15,7 +15,7 @@ export default function HomeTech() {
             <span className="text-sm font-black uppercase tracking-[0.25em] text-orange-400">Key Tech Expertise</span>
             <h2 className="mt-3 text-4xl font-black">Tools we work with</h2>
           </div>
-          <Link href="/portfolio" className="w-fit rounded-full bg-orange-500 px-7 py-3 font-black transition hover:-translate-y-1 hover:bg-orange-600">See our work</Link>
+          <Link href="/portfolio" className="w-fit rounded-full bg-teal-600 px-7 py-3 font-black text-white shadow-lg shadow-teal-600/20 transition hover:-translate-y-1 hover:bg-teal-700">See our work</Link>
         </div>
         <div className="scroll-left-container">
           <div className="scroll-left-content gap-4">

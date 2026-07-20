@@ -28,7 +28,7 @@ export default function HomeWorkShowcase() {
               <span key={tag} className="rounded-full bg-orange-100 px-4 py-2 text-sm font-black text-orange-700">{tag}</span>
             ))}
           </div>
-          <Link href="/portfolio" className="mt-8 inline-flex rounded-full bg-zinc-950 px-7 py-3 font-black text-white transition hover:-translate-y-1 hover:bg-orange-500">Open portfolio page</Link>
+          <Link href="/portfolio" className="mt-8 inline-flex rounded-full bg-zinc-950 px-7 py-3 font-black text-white transition hover:-translate-y-1 hover:bg-teal-600">Open portfolio page</Link>
         </div>
       </div>
     </MotionSection>
