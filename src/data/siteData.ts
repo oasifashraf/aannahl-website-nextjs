@@ -118,39 +118,40 @@ export const teamMembers: TeamMember[] = [
   {
     name: 'Amirul Islam',
     role: 'Chief Executive Officer',
-    image: '/assets/team-ceo.svg',
+    image: '/assets/Md Aminur Islam 1.jpg',
     bio: 'Leads company vision, client relationships, and long-term software strategy.',
+  },
+  {
+    name: 'Talat Mohammad',
+    role: 'Chief Technology Officer',
+    image: '/assets/Talat Mohammad 1.jpg',
+    bio: 'Manages the technical vision, infrastructure, and innovation for the company.',
   },
   {
     name: 'Nazmus Sadat',
     role: 'Team Lead',
-    image: '/assets/team-lead.svg',
+    image: '/assets/Nazmus Sadat 1.jpg',
     bio: 'Guides sprint planning, delivery reviews, and daily team coordination.',
   },
   {
     name: 'Mainuddin Ahmed',
     role: 'HR Manager',
-    image: '/assets/team-hr.svg',
+    image: '/assets/Mainuddin Ahmed 1.jpg',
     bio: 'Supports hiring, culture, communication, and people operations.',
   },
   {
     name: 'Oli Ullah',
     role: 'QC Head',
-    image: '/assets/team-dev.svg',
+    image: '/assets/Oli Ullah Sifat 1.jpg',
     bio: 'Builds responsive React pages, reusable components, and polished interfaces.',
   },
   {
     name: 'Samiul Haque',
     role: 'UI/UX Designer',
-    image: '/assets/team-designer.svg',
+    image: '/assets/samiul.png',
     bio: 'Creates user flows, clean layouts, visual systems, and product experiences.',
   },
-  {
-    name: 'Feroz Ahmed',
-    role: 'SEO Strategist',
-    image: '/assets/team-seo.svg',
-    bio: 'Plans page structure, keywords, content sections, and search-friendly layouts.',
-  },
+  
 ];
 
 export const workItems: WorkItem[] = [
