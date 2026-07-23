@@ -49,9 +49,9 @@ export default function TeamGrid({ members }: TeamGridProps) {
             }}
             whileTap={{ scale: 0.98 }}
             aria-label={`View ${member.name}'s profile`}
-            className={`card-hover group overflow-hidden rounded-[2.3rem] border border-orange-100 bg-white text-left shadow-xl shadow-orange-100/70 focus:outline-none focus-visible:ring-4 focus-visible:ring-orange-400 focus-visible:ring-offset-4 ${index === 1 || index === 4 ? 'lg:mt-10' : ''}`}
+            className={`card-hover group overflow-hidden rounded-[2.3rem] border border-orange-100 bg-white text-left shadow-xl shadow-orange-100/70 focus:outline-none focus-visible:ring-4 focus-visible:ring-orange-400 focus-visible:ring-offset-4 `}
           >
-            <span className="relative block bg-gradient-to-br from-orange-50 via-white to-zinc-100 p-8 text-center">
+            <span className="relative block bg-gradient-to-br from-cyan-800 via-cyan-400 to-zinc-100 p-8 text-center">
               <span className="absolute right-6 top-6 rounded-full bg-orange-500 px-4 py-2 text-xs font-black uppercase tracking-widest text-white shadow">Team</span>
               <Image src={member.image} alt={`${member.name} - ${member.role}`} width={180} height={180} className="mx-auto h-44 w-44 rounded-full object-cover shadow-2xl shadow-orange-200/70 transition group-hover:scale-105" />
             </span>
@@ -97,13 +97,13 @@ export default function TeamGrid({ members }: TeamGridProps) {
                 &times;
               </button>
 
-              <div className="bg-gradient-to-br from-orange-50 via-white to-zinc-100 px-8 pb-7 pt-10 text-center">
+              <div className="bg-gradient-to-br from-slate-400 via-white to-zinc-100 px-8 pb-7 pt-10 text-center">
                 <Image src={selectedMember.image} alt={`${selectedMember.name} - ${selectedMember.role}`} width={220} height={220} className="mx-auto h-52 w-52 rounded-full object-cover shadow-2xl shadow-orange-200/70" />
               </div>
               <div className="p-8 text-center sm:p-10">
-                <span className="text-xs font-black uppercase tracking-[0.25em] text-orange-600">Our Team</span>
+                <span className="text-xs font-black uppercase tracking-[0.25em] text-teal-600">Our Team</span>
                 <h2 id="team-member-name" className="mt-2 text-3xl font-black text-zinc-950">{selectedMember.name}</h2>
-                <p className="mt-1 text-lg font-black text-orange-600">{selectedMember.role}</p>
+                <p className="mt-1 text-lg font-black text-teal-600">{selectedMember.role}</p>
                 <p id="team-member-bio" className="mx-auto mt-5 max-w-md leading-7 text-zinc-600">{selectedMember.bio}</p>
                 <Link href="/contact" className="mt-7 inline-flex rounded-full bg-zinc-950 px-7 py-3 font-black text-white transition hover:-translate-y-1 hover:bg-teal-600">
                   Contact Team

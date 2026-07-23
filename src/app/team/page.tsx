@@ -29,7 +29,7 @@ export default function TeamPage() {
             <span className="text-sm font-black uppercase tracking-[0.25em] text-orange-600">Real office energy</span>
             <h2 className="mt-3 text-4xl font-black leading-tight text-zinc-950 md:text-5xl">A focused team for digital product delivery.</h2>
           </div>
-          <Image src="/assets/advanced/office-wide.jpg" alt="Aan Nahl office" width={1200} height={620} className="h-80 w-full rounded-[2.5rem] object-cover shadow-2xl shadow-orange-100/80" />
+          <Image src="/assets/advanced/office-wide.jpg" alt="Aan Nahl office" width={1200} height={620} className="h-80 w-full rounded-[2.5rem] object-cover shadow-2xl shadow-orange-900" />
         </div>
 
         <TeamGrid members={teamMembers} />

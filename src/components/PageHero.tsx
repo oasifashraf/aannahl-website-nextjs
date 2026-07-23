@@ -20,13 +20,15 @@ export default function PageHero({ eyebrow, title, text, image = '/assets/advanc
       <div className="absolute inset-0 opacity-28">
         <Image src={image} alt="" fill className="object-cover" priority />
       </div>
-      <div className="absolute inset-0 bg-gradient-to-r from-black via-zinc-950/90 to-zinc-950/60" />
+      <div className="absolute inset-0 bg-gradient-to-r from-zinc-950/80 via-zinc-950/60 to-zinc-950/20" />
       <div className="absolute inset-0 grid-lines opacity-50" />
-      <FloatingGlow className="left-8 top-24 h-48 w-48 bg-orange-500/35" />
-      <FloatingGlow className="bottom-10 right-12 h-60 w-60 bg-sky-500/15" />
+      {/* <FloatingGlow className="left-8 top-24 h-48 w-48 bg-orange-500/35" />
+      <FloatingGlow className="bottom-10 right-12 h-60 w-60 bg-sky-500/15" /> */}
 
       <MotionSection className="relative z-10 mx-auto max-w-5xl">
         <span className="inline-flex rounded-full border border-orange-400/40 bg-orange-500/15 px-5 py-2 text-sm font-black uppercase tracking-[0.25em] text-orange-200 backdrop-blur">
+        
+        
           {eyebrow}
         </span>
         <h1 className="mt-7 max-w-4xl text-5xl font-black leading-tight md:text-7xl">{title}</h1>
