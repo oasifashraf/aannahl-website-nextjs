@@ -31,7 +31,7 @@ export default function HomeServices() {
                 initial={{ opacity: 0, x: -26 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.45, delay: index * 0.08 }}
+                transition={{ duration: 0.45, delay: index * 0.1}}
                 className={`card-hover rounded-[1.8rem] border p-5 text-left ${activeService.title === service.title ? 'border-teal-400 bg-teal-600 text-white shadow-2xl shadow-teal-600/20' : 'border-orange-100 bg-white text-zinc-950 shadow-lg shadow-orange-100/60'}`}
               >
                 <div className="flex items-center gap-4">
